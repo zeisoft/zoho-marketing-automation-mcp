@@ -1,27 +1,27 @@
-# Zoho Marketing Automation MCP server — through HeyMetra
+<div align="center">
 
-> **Unofficial.** This is not Zoho Marketing Automation's own MCP server and this repository is not affiliated with, endorsed by or supported by Zoho Marketing Automation. It documents how [HeyMetra](https://heymetra.com/), a remote MCP server built by Zeisoft, reads Zoho Marketing Automation.
+<img src="assets/cover.png" alt="Zoho Marketing Automation through HeyMetra's MCP server" width="100%">
+
+# Zoho Marketing Automation &times; HeyMetra
 
 **What each email campaign sent, delivered and drew back — not open yet.**
+
+Your pipeline lives in Zoho Marketing Automation. What it cost to fill it lives somewhere else entirely. Ask once, across both.
 
 [![MCP Registry](https://img.shields.io/badge/MCP_Registry-com.heymetra%2Fheymetra-1f6feb)](https://registry.modelcontextprotocol.io/v0/servers/com.heymetra%2Fheymetra/versions)
 [![Transport](https://img.shields.io/badge/transport-Streamable_HTTP-444)](https://modelcontextprotocol.io/)
 [![Auth](https://img.shields.io/badge/auth-OAuth_2.1-444)](https://heymetra.com/security/)
 [![Connector page](https://img.shields.io/badge/heymetra.com-zoho-marketing-automation-1f6feb)](https://heymetra.com/connectors/zoho-marketing-automation/)
 
+```
+https://mcp.heymetra.com/mcp
+```
+
+</div>
+
 ---
 
-## What Zoho Marketing Automation is
-
-Zoho Marketing Automation is the email marketing side of Zoho: the lists, the campaigns and what each send did.
-
-## What HeyMetra reads from Zoho Marketing Automation
-
-Not open yet: this is a third Zoho sign-in, separate from the CRM and from SalesIQ, and it has not been proven end to end. When it opens, your MCP client gets two tools — one that lists the recent campaigns with the key each is addressed by, and one that returns what a single campaign did: emails sent and delivered, opens, unique clicks, bounces, unsubscribes and spam complaints. A figure Zoho did not state comes back as unknown rather than as zero. Who received or opened a campaign is not available and is not asked for: this connection carries one permission, to read campaign results, and nothing that reaches a mailing list. Read-only: no tool creates, edits or sends a campaign.
-
-## What you can ask
-
-Once connected, in your own assistant, in plain language:
+## Ask it things like
 
 > Which campaigns have we sent recently?
 
@@ -29,24 +29,7 @@ Once connected, in your own assistant, in plain language:
 
 > How many people unsubscribed from our last send?
 
-## Permissions
-
-You switch these on per connection, and a permission you leave off is a tool your assistant never sees.
-
-| Permission | What it covers | Changes anything? |
-|---|---|---|
-| **Campaigns** | Read which campaigns went out and what each one did. Recipients are never read. | No, read only |
-
-<details>
-<summary>What each permission lets an assistant do, in full</summary>
-
-- Reads one campaign's sends, deliveries, opens, unique clicks, bounces, unsubscribes and spam complaints. Who received or opened it is not available.
-- Lists your most recent campaigns with each one's name and status, and the key the performance report needs. It reads no recipient list.
-</details>
-
-## What it can change
-
-- Zoho Marketing Automation is a read-only source — HeyMetra reads it to answer questions and never changes the account.
+No dashboard, no export, no query language. You ask in the assistant you already use and the answer comes back with the account it came from.
 
 ## Connect Zoho Marketing Automation
 
@@ -160,9 +143,36 @@ _The key is serverUrl, not url — the one every other JSON client spells differ
 Full walkthrough: [heymetra.com/mcp/antigravity/](https://heymetra.com/mcp/antigravity/)
 </details>
 
-## Everything else HeyMetra reads
+## What it may and may not touch
 
-One connection answers across accounts — which is the point, because spend lives in one place and revenue in another:
+Zoho Marketing Automation is a read-only source — HeyMetra reads it to answer questions and never changes the account.
+
+Permissions are switched on per connection, and one you leave off is a tool your assistant never sees.
+
+| Permission | What it covers | Changes anything? |
+|---|---|---|
+| **Campaigns** | Read which campaigns went out and what each one did. Recipients are never read. | No, read only |
+
+<details>
+<summary>What each permission lets an assistant do, in full</summary>
+
+- Reads one campaign's sends, deliveries, opens, unique clicks, bounces, unsubscribes and spam complaints. Who received or opened it is not available.
+- Lists your most recent campaigns with each one's name and status, and the key the performance report needs. It reads no recipient list.
+</details>
+
+## What HeyMetra reads from Zoho Marketing Automation
+
+Not open yet: this is a third Zoho sign-in, separate from the CRM and from SalesIQ, and it has not been proven end to end. When it opens, your MCP client gets two tools — one that lists the recent campaigns with the key each is addressed by, and one that returns what a single campaign did: emails sent and delivered, opens, unique clicks, bounces, unsubscribes and spam complaints. A figure Zoho did not state comes back as unknown rather than as zero. Who received or opened a campaign is not available and is not asked for: this connection carries one permission, to read campaign results, and nothing that reaches a mailing list. Read-only: no tool creates, edits or sends a campaign.
+
+<details>
+<summary>About Zoho Marketing Automation</summary>
+
+Zoho Marketing Automation is the email marketing side of Zoho: the lists, the campaigns and what each send did.
+</details>
+
+## One connection, not seven
+
+The reason to read Zoho Marketing Automation through HeyMetra rather than through a server that only knows Zoho Marketing Automation is everything else it can answer in the same breath:
 
 **Ads** — [Google Ads](https://heymetra.com/connectors/google-ads/) · [Meta](https://heymetra.com/connectors/meta-ads/)
 
@@ -176,17 +186,17 @@ One connection answers across accounts — which is the point, because spend liv
 
 **Channels** — [Slack](https://github.com/zeisoft/slack-mcp) · [Telegram](https://github.com/zeisoft/telegram-mcp)
 
-The full catalogue, with what each one can do today, is at [heymetra.com/connectors/](https://heymetra.com/connectors/).
+The full catalogue is at [heymetra.com/connectors/](https://heymetra.com/connectors/).
 
 ## Links
 
-- [Zoho Marketing Automation connector page](https://heymetra.com/connectors/zoho-marketing-automation/) — the source this page is generated from
+- [Zoho Marketing Automation connector page](https://heymetra.com/connectors/zoho-marketing-automation/)
 - [HeyMetra](https://heymetra.com/) — what the product is
-- [Setup per assistant](https://heymetra.com/mcp/) — eight clients, step by step
+- [Setup for every assistant](https://heymetra.com/mcp/)
 - [Security and limits](https://heymetra.com/security/)
-- [Pricing](https://heymetra.com/pricing/) — paid, no free plan and no trial
+- [Pricing](https://heymetra.com/pricing/)
 - [HeyMetra's own repository](https://github.com/zeisoft/heymetra-mcp)
 
 ---
 
-<sub>This README is generated from HeyMetra's live connector catalogue and refreshed daily; it is committed only when something in it actually changed. Corrections are welcome as issues. Built by <a href="https://zeisoft.com">Zeisoft</a>.</sub>
+<sub>Built by <a href="https://zeisoft.com">Zeisoft</a>, who make HeyMetra. Not affiliated with Zoho Marketing Automation. This README is generated from HeyMetra's live connector catalogue and refreshed daily; corrections are welcome as issues.</sub>
