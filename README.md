@@ -4,7 +4,7 @@
 
 # Zoho Marketing Automation &times; HeyMetra
 
-**What each email campaign sent, delivered and drew back — not open yet.**
+**What each email campaign sent, delivered and drew back.**
 
 Your pipeline lives in Zoho Marketing Automation. What it cost to fill it lives somewhere else entirely. Ask once, across both.
 
@@ -33,10 +33,25 @@ No dashboard, no export, no query language. You ask in the assistant you already
 
 ## Connect Zoho Marketing Automation
 
-1. When Marketing Automation opens, choose it on the Connections screen in HeyMetra — separately from Zoho CRM and SalesIQ.
-2. Sign in on Zoho's own screen with an account that can read your campaigns. Your password stays with Zoho.
-3. Review what Zoho shows: one permission, to read campaign results. Nothing that can create or send a campaign, and nothing that reaches your mailing lists.
-4. Add HeyMetra to your MCP client — Claude, ChatGPT, Cursor or Codex — with the details HeyMetra gives you; the campaign tools appear there.
+**1. Connect it separately from Zoho CRM and SalesIQ**
+
+Choose Zoho Marketing Automation on the Connections screen. One Zoho sign-in covers several products, but each grant is its own.
+
+> Marketing Automation is not Zoho Campaigns. They are different products with different campaign lists, and a Campaigns account will sign in happily and report nothing.
+
+**2. Sign in as somebody who can see the campaigns**
+
+On Zoho's own screen. Your password never reaches HeyMetra.
+
+**3. Grant the one read permission**
+
+Campaign READ, and nothing else. There is nothing here that can create a campaign, send one, or reach a mailing list — and nothing that reads the subscribers themselves.
+
+**4. Add HeyMetra to the assistant you use**
+
+Claude, ChatGPT, Cursor or Codex. The campaign tools appear there: which campaigns went out, and what each one did.
+
+> A campaign's results are asked for by the key the list tool reports, so the list is how a campaign is found — there is no way to name one by its subject line.
 
 ## Then add HeyMetra to your assistant
 
@@ -170,9 +185,29 @@ Permissions are switched on per connection, and one you leave off is a tool your
 - Lists your most recent campaigns with each one's name and status, and the key the performance report needs. It reads no recipient list.
 </details>
 
+## When something goes wrong
+
+<details>
+<summary>It connects and reports no campaigns at all.</summary>
+
+**Why:** Usually a Zoho Campaigns account rather than a Marketing Automation one. The sign-in succeeds because it is the same Zoho account; the campaigns live in the other product.
+
+**Fix:** Check the product name in Zoho's own menu. If it says Campaigns, this connector cannot read it and HeyMetra has no connector that can yet — ask your assistant to send us a request for it, so it is counted.
+
+</details>
+
+<details>
+<summary>Recent campaigns are missing from the list.</summary>
+
+**Why:** The list comes back newest first and a page of it at a time, and a status filter narrows it further — a draft is not a sent campaign.
+
+**Fix:** Ask without a status filter, and follow the cursor the answer carries if there are more than one page.
+
+</details>
+
 ## What HeyMetra reads from Zoho Marketing Automation
 
-Not open yet: this is a third Zoho sign-in, separate from the CRM and from SalesIQ, and it has not been proven end to end. When it opens, your MCP client gets two tools — one that lists the recent campaigns with the key each is addressed by, and one that returns what a single campaign did: emails sent and delivered, opens, unique clicks, bounces, unsubscribes and spam complaints. A figure Zoho did not state comes back as unknown rather than as zero. Who received or opened a campaign is not available and is not asked for: this connection carries one permission, to read campaign results, and nothing that reaches a mailing list. Read-only: no tool creates, edits or sends a campaign.
+This is a third Zoho sign-in, separate from the CRM and from SalesIQ. Your MCP client gets two tools — one that lists the recent campaigns with the key each is addressed by, and one that returns what a single campaign did: emails sent and delivered, opens, unique clicks, bounces, unsubscribes and spam complaints. A figure Zoho did not state comes back as unknown rather than as zero. Who received or opened a campaign is not available and is not asked for: this connection carries one permission, to read campaign results, and nothing that reaches a mailing list. Read-only: no tool creates, edits or sends a campaign.
 
 <details>
 <summary>About Zoho Marketing Automation</summary>
