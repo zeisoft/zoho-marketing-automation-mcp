@@ -176,13 +176,12 @@ Permissions are switched on per connection, and one you leave off is a tool your
 
 | Permission | What it covers | Changes anything? |
 |---|---|---|
-| **Campaigns** | Read which campaigns went out and what each one did. Recipients are never read. | No, read only |
+| **Direct API access** | Let your assistant use this account's own API for anything HeyMetra's other operations do not cover. It reads directly, and what comes back is the provider's own answer rather than a figure HeyMetra has checked. It can also propose changes — those are never applied until you approve them, and HeyMetra cannot undo one afterwards. | No, read only |
 
 <details>
 <summary>What each permission lets an assistant do, in full</summary>
 
-- Reads one campaign's sends, deliveries, opens, unique clicks, bounces, unsubscribes and spam complaints. Who received or opened it is not available.
-- Lists your most recent campaigns with each one's name and status, and the key the performance report needs. It reads no recipient list.
+- Ask this account's own API a question HeyMetra's other operations do not cover. Reads only, and the answer is the provider's own rather than a figure HeyMetra has checked.
 </details>
 
 ## When something goes wrong
