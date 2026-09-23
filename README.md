@@ -170,19 +170,22 @@ Full walkthrough: [heymetra.com/mcp/antigravity/](https://heymetra.com/mcp/antig
 
 ## What it may and may not touch
 
-Zoho Marketing Automation is a read-only source — HeyMetra reads it to answer questions and never changes the account.
+Propose a change through this account's own API, for operations HeyMetra does not cover. Nothing is sent until you approve it, and HeyMetra cannot undo it afterwards.
 
 Permissions are switched on per connection, and one you leave off is a tool your assistant never sees.
 
 | Permission | What it covers | Changes anything? |
 |---|---|---|
-| **Direct API access** | Let your assistant use this account's own API for anything HeyMetra's other operations do not cover. It reads directly, and what comes back is the provider's own answer rather than a figure HeyMetra has checked. It can also propose changes — those are never applied until you approve them, and HeyMetra cannot undo one afterwards. | No, read only |
+| **Direct API access** | Let your assistant use this account's own API for anything HeyMetra's other operations do not cover. It reads directly, and what comes back is the provider's own answer rather than a figure HeyMetra has checked. It can also propose changes — those are never applied until you approve them, and HeyMetra cannot undo one afterwards. | Yes — every change waits for your approval |
 
 <details>
 <summary>What each permission lets an assistant do, in full</summary>
 
 - Ask this account's own API a question HeyMetra's other operations do not cover. Reads only, and the answer is the provider's own rather than a figure HeyMetra has checked.
+- Propose a change through this account's own API, for operations HeyMetra does not cover. Nothing is sent until you approve it, and HeyMetra cannot undo it afterwards.
 </details>
+
+Anything that would change something comes back as a proposal you approve, inside bounds that live in code rather than in a prompt: ±50% on a budget, 5 campaigns per action and 20 changes a rolling day, and an approval that expires after 30 minutes. [How that works](https://heymetra.com/security/).
 
 ## When something goes wrong
 
@@ -206,7 +209,7 @@ Permissions are switched on per connection, and one you leave off is a tool your
 
 ## What HeyMetra reads from Zoho Marketing Automation
 
-This is a third Zoho sign-in, separate from the CRM and from SalesIQ. Your MCP client gets two tools — one that lists the recent campaigns with the key each is addressed by, and one that returns what a single campaign did: emails sent and delivered, opens, unique clicks, bounces, unsubscribes and spam complaints. A figure Zoho did not state comes back as unknown rather than as zero. Who received or opened a campaign is not available and is not asked for: this connection carries one permission, to read campaign results, and nothing that reaches a mailing list. Read-only: no tool creates, edits or sends a campaign.
+This is a third Zoho sign-in, separate from the CRM and from SalesIQ. Your MCP client gets one tool that reads campaign results: the recent campaigns with the key each is addressed by, and what a single campaign did — emails sent and delivered, opens, unique clicks, bounces, unsubscribes and spam complaints. A figure Zoho did not state comes back as unknown rather than as zero. This connection carries one permission, to read campaign results, and nothing that reaches a mailing list. Zoho can separate reading from writing, so you choose which at connect time: a read-only connection is offered no tool that creates, edits or sends a campaign.
 
 <details>
 <summary>About Zoho Marketing Automation</summary>
@@ -220,13 +223,15 @@ The reason to read Zoho Marketing Automation through HeyMetra rather than throug
 
 **Ads** — [Google Ads](https://heymetra.com/connectors/google-ads/) · [Meta](https://heymetra.com/connectors/meta-ads/)
 
-**Analytics** — [Google Analytics 4](https://heymetra.com/connectors/google-analytics-4/) · [Google Search Console](https://github.com/zeisoft/google-search-console-mcp)
+**Analytics** — [Google Analytics 4](https://heymetra.com/connectors/google-analytics-4/) · [Google Search Console](https://github.com/zeisoft/google-search-console-mcp) · [PostHog](https://github.com/zeisoft/posthog-mcp)
 
 **Ecommerce** — [Shopify](https://heymetra.com/connectors/shopify/) · [Trendyol](https://github.com/zeisoft/trendyol-mcp) · [WooCommerce](https://github.com/zeisoft/woocommerce-mcp)
 
 **Revenue & CRM** — [Stripe](https://heymetra.com/connectors/stripe/) · [HubSpot](https://heymetra.com/connectors/hubspot/) · [Zoho CRM](https://github.com/zeisoft/zoho-crm-mcp) · [Zoho SalesIQ](https://github.com/zeisoft/zoho-salesiq-mcp) · **Zoho Marketing Automation**
 
 **Mobile** — [AppsFlyer](https://github.com/zeisoft/appsflyer-mcp) · [RevenueCat](https://heymetra.com/connectors/revenuecat/) · [Adapty](https://github.com/zeisoft/adapty-mcp) · [App Store Connect](https://github.com/zeisoft/app-store-connect-mcp)
+
+**Work** — [Google Calendar](https://heymetra.com/connectors/google-calendar/) · [Google Meet](https://heymetra.com/connectors/google-meet/) · [Jira](https://github.com/zeisoft/jira-mcp)
 
 **Channels** — [Slack](https://github.com/zeisoft/slack-mcp) · [Telegram](https://github.com/zeisoft/telegram-mcp)
 
