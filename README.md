@@ -25,7 +25,7 @@ https://mcp.heymetra.com/mcp
 
 > Which campaigns have we sent recently?
 
-> How did the September newsletter do — how many opened it, how many clicked?
+> How many people opened and clicked the September newsletter?
 
 > How many people unsubscribed from our last send?
 
@@ -45,13 +45,13 @@ On Zoho's own screen. Your password never reaches HeyMetra.
 
 **3. Grant the one read permission**
 
-Campaign READ, and nothing else. There is nothing here that can create a campaign, send one, or reach a mailing list — and nothing that reads the subscribers themselves.
+Campaign READ. If you chose to allow changes, Zoho also lists campaign CREATE and UPDATE, which is what lets your assistant propose a campaign, an edit or a send. A read-only connection can do none of those, and nothing here reads the subscribers themselves.
 
 **4. Add HeyMetra to the assistant you use**
 
 Claude, ChatGPT, Cursor or Codex. The campaign tools appear there: which campaigns went out, and what each one did.
 
-> A campaign's results are asked for by the key the list tool reports, so the list is how a campaign is found — there is no way to name one by its subject line.
+> Ask for the list of recent campaigns first, then about the one you want. A campaign cannot be looked up by its subject line.
 
 ## Then add HeyMetra to your assistant
 
@@ -86,7 +86,7 @@ Full walkthrough: [heymetra.com/mcp/claude/](https://heymetra.com/mcp/claude/)
 
 Paste the address above into Settings → Security and login → Developer mode, then chatgpt.com/plugins.
 
-_The endpoint has to include its /mcp path here._
+_The address has to end in /mcp here._
 
 Full walkthrough: [heymetra.com/mcp/chatgpt/](https://heymetra.com/mcp/chatgpt/)
 </details>
@@ -147,7 +147,7 @@ Full walkthrough: [heymetra.com/mcp/codex/](https://heymetra.com/mcp/codex/)
 }
 ```
 
-_Leave the static OAuth fields empty — they exist for servers that cannot register themselves._
+_Leave the static OAuth fields empty; HeyMetra does not need them._
 
 Full walkthrough: [heymetra.com/mcp/cursor/](https://heymetra.com/mcp/cursor/)
 </details>
@@ -163,26 +163,26 @@ Full walkthrough: [heymetra.com/mcp/cursor/](https://heymetra.com/mcp/cursor/)
 }
 ```
 
-_The key is serverUrl, not url — the one every other JSON client spells differently._
+_The key is serverUrl, not url, unlike every other JSON client._
 
 Full walkthrough: [heymetra.com/mcp/antigravity/](https://heymetra.com/mcp/antigravity/)
 </details>
 
 ## What it may and may not touch
 
-Propose a change through this account's own API, for operations HeyMetra does not cover. Nothing is sent until you approve it, and HeyMetra cannot undo it afterwards.
+Propose a change to this account. Nothing is sent until you approve it, and HeyMetra cannot undo it afterwards.
 
 Permissions are switched on per connection, and one you leave off is a tool your assistant never sees.
 
 | Permission | What it covers | Changes anything? |
 |---|---|---|
-| **Direct API access** | Let your assistant use this account's own API for anything HeyMetra's other operations do not cover. It reads directly, and what comes back is the provider's own answer rather than a figure HeyMetra has checked. It can also propose changes — those are never applied until you approve them, and HeyMetra cannot undo one afterwards. | Yes — every change waits for your approval |
+| **Full account access** | Lets your assistant read anything in this account to answer your questions. The figures are the provider's own, not ones HeyMetra has checked. It can also propose changes: none is applied until you approve it, and HeyMetra cannot undo one afterwards. | Yes — every change waits for your approval |
 
 <details>
 <summary>What each permission lets an assistant do, in full</summary>
 
-- Ask this account's own API a question HeyMetra's other operations do not cover. Reads only, and the answer is the provider's own rather than a figure HeyMetra has checked.
-- Propose a change through this account's own API, for operations HeyMetra does not cover. Nothing is sent until you approve it, and HeyMetra cannot undo it afterwards.
+- Ask anything about this account and get the answer from its live data. Reads only, and the figures are the provider's own rather than ones HeyMetra has checked.
+- Propose a change to this account. Nothing is sent until you approve it, and HeyMetra cannot undo it afterwards.
 </details>
 
 Anything that would change something comes back as a proposal you approve, inside bounds that live in code rather than in a prompt: ±50% on a budget, 5 campaigns per action and 20 changes a rolling day, and an approval that expires after 30 minutes. [How that works](https://heymetra.com/security/).
@@ -194,22 +194,22 @@ Anything that would change something comes back as a proposal you approve, insid
 
 **Why:** Usually a Zoho Campaigns account rather than a Marketing Automation one. The sign-in succeeds because it is the same Zoho account; the campaigns live in the other product.
 
-**Fix:** Check the product name in Zoho's own menu. If it says Campaigns, this connector cannot read it and HeyMetra has no connector that can yet — ask your assistant to send us a request for it, so it is counted.
+**Fix:** Check the product name in Zoho's own menu. If it says Campaigns, this connector cannot read it and HeyMetra has no connector that can yet. Ask your assistant to send us a request for it, so it is counted.
 
 </details>
 
 <details>
 <summary>Recent campaigns are missing from the list.</summary>
 
-**Why:** The list comes back newest first and a page of it at a time, and a status filter narrows it further — a draft is not a sent campaign.
+**Why:** The list comes back newest first, one page at a time, and asking for one status narrows it further. A draft is not a sent campaign.
 
-**Fix:** Ask without a status filter, and follow the cursor the answer carries if there are more than one page.
+**Fix:** Ask without naming a status, and ask for the next page if there is more than one.
 
 </details>
 
 ## What HeyMetra reads from Zoho Marketing Automation
 
-This is a third Zoho sign-in, separate from the CRM and from SalesIQ. Your MCP client gets one tool that reads campaign results: the recent campaigns with the key each is addressed by, and what a single campaign did — emails sent and delivered, opens, unique clicks, bounces, unsubscribes and spam complaints. A figure Zoho did not state comes back as unknown rather than as zero. This connection carries one permission, to read campaign results, and nothing that reaches a mailing list. Zoho can separate reading from writing, so you choose which at connect time: a read-only connection is offered no tool that creates, edits or sends a campaign.
+This is a third Zoho sign-in, separate from the CRM and from SalesIQ. Ask your assistant about campaign results: your recent campaigns, and what a single campaign did, with emails sent and delivered, opens, unique clicks, bounces, unsubscribes and spam complaints. A figure Zoho did not state comes back as unknown rather than as zero. Nothing here reads who is on a mailing list. When you connect, you choose whether your assistant may only read, or also propose changes to campaigns that wait for your approval.
 
 <details>
 <summary>About Zoho Marketing Automation</summary>
