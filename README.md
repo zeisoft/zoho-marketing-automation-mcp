@@ -223,7 +223,7 @@ Zoho Marketing Automation is the email marketing side of Zoho: the lists, the ca
 
 The reason to read Zoho Marketing Automation through HeyMetra rather than through a server that only knows Zoho Marketing Automation is everything else it can answer in the same breath:
 
-**Ads** — [Google Ads](https://github.com/zeisoft/google-ads-mcp)
+**Ads** — [Google Ads](https://github.com/zeisoft/google-ads-mcp) · [Meta](https://github.com/zeisoft/meta-ads-mcp)
 
 **Analytics** — [Google Analytics 4](https://github.com/zeisoft/google-analytics-4-mcp) · [Google Search Console](https://github.com/zeisoft/google-search-console-mcp) · [PostHog](https://github.com/zeisoft/posthog-mcp)
 
